@@ -1,6 +1,5 @@
 package com.example.nbp_currencies.Controller;
 
-import com.example.nbp_currencies.Model.Rate;
 import com.example.nbp_currencies.Model.Root;
 import com.example.nbp_currencies.Service.NbpService;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +18,8 @@ public class NbpController {
     }
 
     @RequestMapping("/get")
-    public ResponseEntity<Root[]> getCurrencies(@RequestParam String firstDay, @RequestParam String lastDay, @RequestBody double mid) {
-    return ResponseEntity.ok(nbpService.getCurrenciesList(firstDay, lastDay, mid));
+    public ResponseEntity<Integer> getCurrencies(@RequestParam String firstDay, @RequestParam String lastDay, @RequestBody double mid) {
+    return ResponseEntity.ok(nbpService.getResponseList(firstDay, lastDay, mid));
     }
 
 }
